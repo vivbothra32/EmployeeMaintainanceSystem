@@ -5,7 +5,7 @@ import java.util.Date;
 public class Employee {
 	private String empId;
 	private String firstName;
-	private String lastname;
+	private String lastName;
 	private Date dateOfBirth;
 	private Date dateOfJoining;
 	private Department empDept;
@@ -20,12 +20,12 @@ public class Employee {
 	public Employee() {
 		
 	}
-	public Employee(String empId, String firstName, String lastname, Date dateOfBirth, Date dateOfJoining,
+	public Employee(String empId, String firstName, String lastName, Date dateOfBirth, Date dateOfJoining,
 			Department empDept, Grade empGrade, double basic, String gender, String maritalStatus, String homeAddress,
 			String contactNo, String mgrId) {
 		this.empId = empId;
 		this.firstName = firstName;
-		this.lastname = lastname;
+		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
 		this.dateOfJoining = dateOfJoining;
 		this.empDept = empDept;
@@ -49,11 +49,11 @@ public class Employee {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastname(String lastName) {
+		this.lastName = lastName;
 	}
 	public Date getDateOfBirth() {
 		return dateOfBirth;
