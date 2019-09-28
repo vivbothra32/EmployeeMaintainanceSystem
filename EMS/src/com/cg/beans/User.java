@@ -9,6 +9,11 @@ public class User {
 	public User() {
 		
 	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", userType=" + userType
+				+ "]";
+	}
 	public User(String userId, String userName, String password, String userType) {
 		this.userId = userId;
 		this.userName = userName;
