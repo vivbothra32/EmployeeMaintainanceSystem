@@ -1,8 +1,11 @@
 package com.cg.service;
 
-public interface EmployeeService {
+import java.util.Date;
 
-	
+import com.cg.beans.Department;
+import com.cg.beans.Grade;
+
+public interface EmployeeService {
 
 	boolean validateFirstName(String firstName);
 
@@ -14,6 +17,9 @@ public interface EmployeeService {
 
 	boolean validateMaritalStatus(String maritalStatus);
 
+	boolean validateDateOfBirth(String sdob);
+
+	boolean validateDateOfJoining(String sdoj);
 	
 
 }

@@ -1,11 +1,16 @@
 package com.cg.service;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+
+import com.cg.beans.Department;
+import com.cg.beans.Grade;
 
 public class EmployeeServiceImpl implements EmployeeService {
 	String nameRule = "[A-Z][a-z]{24}";
 	String empIdRule = "[1-9][0-9]{5}";
+	String dateRule = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";
 	@Override
 	public boolean validateFirstName(String firstName) {
 		return firstName.matches(nameRule);
@@ -48,5 +53,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}else
 			return true;
 	}
+
+	@Override
+	public boolean validateDateOfBirth(String sdob) {
+		return sdob.matches(dateRule);
+		
+	}
+
+	@Override
+	public boolean validateDateOfJoining(String sdoj) {
+		return sdoj.matches(dateRule);
+	}
+
 
 }
