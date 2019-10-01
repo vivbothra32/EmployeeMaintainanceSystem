@@ -22,13 +22,13 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	}
 	@Override
 	public Department fetchDepartment(String code) {
-		String sql = "Select * from department where dname = ?";
+		String sql = "Select * from Department where Dept_Name = ?";
 		Connection conn = null;
 		Department d = null;
 		try {
 			conn = getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, d.getDname());
+			stmt.setString(1, code);
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) {
 				d = new Department();

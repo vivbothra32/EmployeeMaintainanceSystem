@@ -274,6 +274,8 @@ public class EMSApplication {
 		do{
 			System.out.print("Enter Basic salary : ");
 			basic = scanner.nextDouble();
+			System.out.println(g.getMinSalary());
+			System.out.println(g.getMaxSalary());
 			if(basic > g.getMinSalary() && basic < g.getMaxSalary())
 				flag = true;
 			else {
@@ -281,6 +283,7 @@ public class EMSApplication {
 				flag = false;
 			}
 		}while(flag == false);
+		
 		    
 	}
 }

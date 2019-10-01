@@ -22,20 +22,20 @@ public class GradeDaoImpl implements GradeDao {
 	}
 	@Override
 	public Grade fetchGrade(String grade) {
-		String sql = "Select * from grade where code = ?";
+		String sql = "Select * from Grade_Master where Grade_Code = ?";
 		Connection conn = null;
 		Grade g = null;
 		try {
 			conn = getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, g.getCode());
+			stmt.setString(1, grade);
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) {
 				g = new Grade();
 				g.setCode(rs.getString(1));
 				g.setDescription(rs.getString(2));
-				g.setMaxSalary(rs.getDouble(3));
-				g.setMinSalary(rs.getDouble(4));
+				g.setMinSalary(rs.getDouble(3));
+				g.setMaxSalary(rs.getDouble(4));
 			}
 			return g;
 		}catch (SQLException e) {
