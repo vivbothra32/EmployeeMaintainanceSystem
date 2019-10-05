@@ -62,14 +62,14 @@ public class EMSApplication {
 		String userName;
 		String userType;
 		String password;
-		System.out.println("Enter User ID");
+		System.out.print("Enter User ID : ");
 		userId = scanner.next();
-		System.out.println("Enter your User Name: ");
+		System.out.print("Enter your User Name : ");
 		userName = scanner.next();
-		System.out.println("Enter your Password: ");
+		System.out.print("Enter your Password : ");
 		password = scanner.next();
 		while(true){
-			System.out.println("Enter user type : Admin/Employee ");
+			System.out.print("Enter user type : Admin/Employee ");
 			userType = scanner.next();
 			if(userType.equals("Admin")||userType.equals("Employee")
 					||userType.equals("admin")||userType.equals("employee")) {
@@ -88,7 +88,6 @@ public class EMSApplication {
 		if(flag==null) {
 			System.out.println("No user found. Login unsuccessful.");
 		}else {
-			System.out.println(flag.toString());
 			System.out.println("User Found. logged in as "+flag.getUserType());
 			if(flag.getUserType().equalsIgnoreCase("Admin")) {
 				adminLogin(flag);
@@ -159,7 +158,7 @@ public class EMSApplication {
 				System.out.print("Enter date of birth in dd-mm-yyyy format: ");
 				sdob = scanner.next();
 				
-			}while(service.validateDateOfBirth(sdob));
+			}while(!service.validateDateOfBirth(sdob));
 			try {
 				dob = new SimpleDateFormat("dd-MM-yyyy").parse(sdob);
 				LocalDate date = dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -184,7 +183,7 @@ public class EMSApplication {
 				System.out.print("Enter date of joining in dd-mm-yyyy format: ");
 				sdoj = scanner.next();
 				
-			}while(service.validateDateOfJoining(sdoj));
+			}while(!service.validateDateOfJoining(sdoj));
 			try {
 				doj = new SimpleDateFormat("dd-MM-yyyy").parse(sdoj);
 				LocalDate jdate = doj.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -204,46 +203,47 @@ public class EMSApplication {
 		
 		do {
 			System.out.print("Enter Gender : ");
-			System.out.println("Male / Female ");
+			System.out.print("Male / Female ->");
 			gender = scanner.next();
 		}while(!service.validateGender(gender));
 		
 		do{
 			System.out.print("Enter the marital status : ");
-			System.out.println("Single / Married / Divorced / Separated / Widowed ");
+			System.out.print("Single / Married / Divorced / Separated / Widowed ->");
 			maritalStatus = scanner.next();
 		}while(!service.validateMaritalStatus(maritalStatus));
 		flag = true;
 		do {
-			System.out.println("Home Address is optional. Enter '-' to leave it blank");;
+			System.out.println("Home Address is optional. Enter '-' to leave it blank");
 			System.out.print("Enter Home Address : ");
-			String address = scanner.nextLine();
+			String address = scanner.next();
 			if(address.equals("-")) {
 				homeAddress = null;
-				flag = false;
+				break;
 			}
 			else {
 				homeAddress = address;
-				flag = false;
+				break;
 			}
-		}while(flag==true);
+		}while(true);
+		flag = true;
 		do {
-			System.out.println("Personal Contact No. is optional. Enter '-' to leave it blank");;
+			System.out.println("Personal Contact No. is optional. Enter '-' to leave it blank");
 			System.out.print("Enter Contact No. : ");
-			String number = scanner.nextLine();
+			String number = scanner.next();
 			if(number.equals("-")) {
 				contactNo = null;
-				flag = false;
+				break;
 			}
 			else {
 				contactNo = number;
-				flag = false;
+				break;
 			}
-		}while(flag==true);
+		}while(true);
 		flag = false;
 		Department d = null;
 		do {
-			System.out.println("Enter dept ID : ");
+			System.out.print("Enter Department Name : ");
 			String dname = scanner.next();
 			d = dservice.findDepartment(dname);
 			if(d != null) {
@@ -258,7 +258,7 @@ public class EMSApplication {
 		}while(flag == false);
 		Grade g = null;
 		do {
-			System.out.println("Enter Grade : ");
+			System.out.print("Enter Grade : ");
 			String grade = scanner.next();
 			g = gservice.findGrade(grade);
 			if(g != null) {
@@ -274,8 +274,6 @@ public class EMSApplication {
 		do{
 			System.out.print("Enter Basic salary : ");
 			basic = scanner.nextDouble();
-			System.out.println(g.getMinSalary());
-			System.out.println(g.getMaxSalary());
 			if(basic > g.getMinSalary() && basic < g.getMaxSalary())
 				flag = true;
 			else {
