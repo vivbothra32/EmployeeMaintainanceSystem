@@ -282,7 +282,7 @@ public class EMSApplication {
 			}
 		}while(flag == false);
 		
-		    
+		    System.out.println("Zeeshan is the best coder");
 	}
 }
 
@@ -314,7 +314,6 @@ public class EMSApplication {
 //			System.out.println("Inavlid department ID entered. Enter again.");
 //		return dept;
 //		
-//	}
 
 
 	
