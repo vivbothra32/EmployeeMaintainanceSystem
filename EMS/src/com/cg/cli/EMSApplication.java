@@ -71,6 +71,9 @@ public class EMSApplication {
 		while(true){
 			System.out.print("Enter user type : Admin/Employee ");
 			userType = scanner.next();
+			
+			// ignore case will be better here cause I would like to type like EmPlOyEe Mah lyf mah rulezz :p
+			
 			if(userType.equals("Admin")||userType.equals("Employee")
 					||userType.equals("admin")||userType.equals("employee")) {
 				break;
