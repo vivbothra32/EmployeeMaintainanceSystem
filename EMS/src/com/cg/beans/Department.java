@@ -24,4 +24,5 @@ public class Department {
 		this.dname = dname;
 	}
 	
+	//add toString() method	
 }
