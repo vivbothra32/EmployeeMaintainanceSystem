@@ -1,5 +1,5 @@
 package com.cg.beans;
-
+//edited
 public class Department {
 	private int id;
 	private String dname;
